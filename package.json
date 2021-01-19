@@ -9,7 +9,7 @@
     "test": "jest --config ./jest.config.json",
     "test:verbose": "jest --verbose --config ./jest.config.json",
     "preinstall": "npx npm-force-resolutions",
-    "run": "webpack-dev-server --env.ENVIRONMENT=development --mode development && cd server/ node src"
+    "run": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env.ENVIRONMENT=development --mode development"
   },
   "keywords": [],
   "author": "",
