@@ -2,6 +2,10 @@
   "name": "islamic-counselling-service",
   "version": "1.0.0",
   "description": "Islamic Counselling Service",
+  "engines": {
+    "node": "14.5.0",
+    "npm" : "6.14.8"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
