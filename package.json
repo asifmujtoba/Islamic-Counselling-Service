@@ -4,16 +4,14 @@
   "description": "Islamic Counselling Service",
   "engines": {
     "node": "14.5.0",
-    "npm" : "6.14.8"
+    "npm": "6.14.8"
   },
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
     "build": "webpack --env.ENVIRONMENT=production --mode production",
     "test": "jest --config ./jest.config.json",
-    "test:verbose": "jest --verbose --config ./jest.config.json",
-    "preinstall": "npx npm-force-resolutions",
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env.ENVIRONMENT=development --mode development"
+    "test:verbose": "jest --verbose --config ./jest.config.json"
   },
   "keywords": [],
   "author": "",
