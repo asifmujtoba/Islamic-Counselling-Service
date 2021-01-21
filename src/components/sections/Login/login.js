@@ -59,7 +59,7 @@ const Login =({
         () => {
           resetForm();
           displaySnackbar('success', 'Welcome!');
-          <Redirect to="/dashboard"/>
+          history.push('/dashboard');
         },
         () => {
           displaySnackbar('error', 'Please verify the credentials');

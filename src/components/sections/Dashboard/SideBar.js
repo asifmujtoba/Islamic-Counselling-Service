@@ -58,15 +58,34 @@ const SideBar= (props) => {
       </li>
       )}
       
+      {props.role ==="Admin" && (
+      <li> 
+        <Link to="/contact">
+            <svg>
+              <use href="#comments"></use>
+            </svg>
+            <span>Messages</span>
+        </Link>
+      </li>
+      )}
+       {props.role ==="Admin" && (
+      <li> 
+        <Link to="/newsletter">
+            <svg>
+              <use href="#collection"></use>
+            </svg>
+            <span>Newsletter</span>
+        </Link>
+      </li>
+      )}
 
-      <li>
-        <a className=" logout button button-secondary button-wide-mobile button-sm" onClick={logOff}>
+  
+      </ul>
+      <div className="dash-footer center-content">
+        <a className="button button-secondary button-sm" onClick={logOff}>
           Log off
         </a>
-      </li>
-      
-      </ul>
-
+        </div>
     </header>
     </>
   );

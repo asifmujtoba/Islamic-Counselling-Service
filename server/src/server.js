@@ -8,6 +8,8 @@ const authenticationRouter = require('./routers/authentication.router');
 const postsRouter = require('./routers/posts.router');
 const usersRouter = require('./routers/users.router');
 const bookingRouter = require('./routers/booking.router');
+const contactRouter = require('./routers/contact.router');
+const newsletterRouter = require('./routers/newsletter.router');
 // set headers to avoid CORS Policy
 app.use(setHeaders);
 // parser the body of the request
@@ -31,4 +33,6 @@ app.use('/authentication', authenticationRouter);
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 app.use('/booking', bookingRouter);
+app.use('/contact', contactRouter);
+app.use('/newsletter', newsletterRouter);
 module.exports = app;

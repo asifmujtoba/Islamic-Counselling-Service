@@ -90,8 +90,6 @@ const Services = ({
     
   };
 
-  const dispatch = useDispatch();
-
   const { saveBooking }  =
     useSaveBooking(
       type,

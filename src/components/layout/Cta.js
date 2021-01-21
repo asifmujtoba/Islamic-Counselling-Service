@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import Input from './../elements/Input';
+import {useSaveNewsletter} from '../../hooks/useSaveNewsletter';
+import {useStateForm, useSnackbar } from '../../hooks';
+import '../../index.scss';
 
 const propTypes = {
   ...SectionProps.types,
@@ -13,6 +16,10 @@ const defaultProps = {
   ...SectionProps.defaults,
   split: false
 }
+const initialFormState = {
+  email: '',
+};
+
 
 const Cta = ({
   className,
@@ -42,6 +49,20 @@ const Cta = ({
     split && 'cta-split'
   );  
 
+  const { formState, onChange, resetForm } = useStateForm(initialFormState);
+  const {displaySnackbar} = useSnackbar();
+  const { saveNewsletter }  =
+  useSaveNewsletter(
+    formState,
+    () => {
+      resetForm();
+      displaySnackbar('success', "You've successfully subscribed to our Newsletter");
+    },
+    () => {
+      displaySnackbar('error', " Unsuccesful");       
+    }
+  );
+
   return (
     <section
       {...props}
@@ -57,11 +78,14 @@ const Cta = ({
               </h3>
           </div>
           <div className="cta-action">
-            <Input id="newsletter" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your email">
-              <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
-              </svg>
+            <form className="newsletter">
+            <Input id="newsletter" name="email" type="email" label="Subscribe" labelHidden hasIcon="right" onChange={onChange}  value={formState.email}  placeholder="Your email">
+             
             </Input>
+            <button type="submit" onClick={saveNewsletter}><svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
+              </svg></button>
+            </form>
           </div>
         </div>
       </div>

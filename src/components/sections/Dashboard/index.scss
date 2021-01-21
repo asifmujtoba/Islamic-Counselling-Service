@@ -78,7 +78,7 @@ body {
   .logo {
     display: block;
     max-width: 190px;
-    margin: 0px 15px;
+    margin: 70px 15px;
   }
   .toggle-mob-menu {
     display: none;
@@ -132,7 +132,9 @@ body {
     width: 100%;
     padding: 12px 15px;
   }
-  
+  .dash-footer {
+    margin-top: 150px;
+  }
 }
 .page-content {
     margin-left: 250px;

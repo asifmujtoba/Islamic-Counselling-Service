@@ -13,10 +13,11 @@ import Consultants from '../sections/Consultants';
 import Users from '../sections/Dashboard/pages/users';
 import AboutUs from '../sections/About-Us';
 import Bookings from '../sections/Dashboard/pages/bookings';
-
+import Contact from '../sections/Dashboard/pages/contact';
+import Newsletter from '../sections/Dashboard/pages/newsletter';
 const Routes = () => {
   const username = useSelector(state => state.userInfo.username);
-
+  console.log(username);
   return (
     
       <Switch>
@@ -28,6 +29,8 @@ const Routes = () => {
          <Route exact path='/about-us' component={AboutUs}/>
          <PrivateRoute exact path='/users' component={Users} username={username} />
          <PrivateRoute exact path='/bookings' component={Bookings} username={username} />
+         <PrivateRoute exact path='/contact' component={Contact} username={username}/>
+         <PrivateRoute exact path='/newsletter' component={Newsletter} username={username}/>
         {/*<Route component={NotFound} /> */}
       </Switch>
  

@@ -19,7 +19,8 @@ const UserContent = (props) => {
     return (
         <div className="page-content">
              <h4>ALL USER DATA</h4>
-
+             <br/>
+            <br/>
             <UserTable>
               {data}
             </UserTable>

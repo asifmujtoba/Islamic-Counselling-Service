@@ -2,14 +2,9 @@ import React, {useState} from 'react';
 import classNames from 'classnames';
 import { SectionSplitProps } from '../../../utils/SectionProps';
 import SectionHeader from '../partials/SectionHeader';
-import Image from '../../elements/Image';
-import Button from '../../elements/Button';
-import Input from '../../elements/Input';
 import "react-datepicker/dist/react-datepicker.css";
-import Select from '../../elements/Select';
-import FormLabel from '../../elements/FormLabel';
-import DatePicker from 'react-datepicker';
-import { useStateForm } from '../../../hooks';
+import { useStateForm , useSnackbar} from '../../../hooks';
+import {useSaveContact} from './useSaveContact';
 
 import './index.scss';
 
@@ -24,6 +19,7 @@ const defaultProps = {
 const initialFormState = {
   name: '',
   email: '',
+  phone: '',
   message: '',
 };
 
@@ -49,6 +45,8 @@ const Hero = ({
 
   const { formState, onChange, resetForm } = useStateForm(initialFormState);
 
+  const {displaySnackbar} = useSnackbar();
+  
   const outerClasses = classNames(
     'features-split section mt-32 pt-32',
     topOuterDivider && 'has-top-divider',
@@ -75,19 +73,20 @@ const Hero = ({
     paragraph: ''
   };
 
-  const [show, setShow] = useState(false);
+  
 
-  const showModal = () => {
-    setShow(true);
-  };
+  const { saveContact }  =
+  useSaveContact(
+    formState,
+    () => {
+      resetForm();
+      displaySnackbar('success', "You've successfully submitted the form");
+    },
+    () => {
+      displaySnackbar('fail', " Unsuccesful");       
+    }
+  );
 
-  const hideModal = () => {
-    setShow(false);
-  };
-
-  const onSubmit =() => {
-
-  }
 
   return (
     <section
@@ -127,31 +126,31 @@ const Hero = ({
                  
            
             <div className="container-sm">
-              <form className="form-style-7">
+              <form className="form-style-7" onSubmit={saveContact}>
                 <ul>
                   <li>
-                      <label for="name">Name</label>
-                      <input type="text" name="name" maxlength="100"/>
+                      <label>Name</label>
+                      <input type="text" name="name" value={formState.name} onChange={onChange}/>
                       <span>Enter your full name here</span>
                   </li>
                   <li>
-                      <label for="email">Email</label>
-                      <input type="email" name="email" maxlength="100"/>
+                      <label >Email</label>
+                      <input type="email" name="email" value={formState.email}  onChange={onChange} />
                       <span>Enter a valid email address</span>
                   </li>
                   <li>
-                      <label for="phone">Phone</label>
-                      <input type="number" name="phone" maxlength="100"/>
+                      <label>Phone</label>
+                      <input type="number" name="phone" value={formState.phone} onChange={onChange} />
                       <span>Enter a valid phone no.</span>
                   </li>
                   
                   <li>
-                      <label for="bio">Message</label>
-                      <textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
+                      <label>Message</label>
+                      <textarea name="message" value={formState.message} onChange={onChange}  ></textarea>
                       <span>Say something about yourself</span>
                   </li>
                   <li>
-                      <input type="submit" value="Send This" />
+                      <input type="submit" value="Send" />
                   </li>
                 </ul>
               </form>

@@ -9,18 +9,18 @@ function Users  () {
 
   const role = useSelector(state => state.userInfo.type);
   const [userData, setUserData] = useState([]);
-
+  
   const dataUser = async () => {
     const data = await retrieveAllUsers();
     setUserData(data);
   }
   
-  const useMountEffect =() => {useEffect(()=>{
+  useEffect(()=>{
+    if(userData.length==0){
       dataUser();
-  }),[]};
+    }
+  }),[userData];
   
-
-  useMountEffect();
   
 
   return (

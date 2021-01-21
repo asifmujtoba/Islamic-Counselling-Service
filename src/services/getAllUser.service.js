@@ -9,7 +9,6 @@ export async function retrieveAllUsers() {
         accept: 'application/json',
       },
     });
-    console.log("res: ", res);
     if (res.status === 400) {
       throw new Error('bad request: could not retrieve all users');
     }

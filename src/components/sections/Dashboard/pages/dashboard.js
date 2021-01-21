@@ -123,7 +123,12 @@ export default class DashContent extends Component {
                   <tr>
                     <td key={index}>{date.toDateString() }</td>
                     <td key={index}>{b.time}</td>
-                    <td key={index}>{b.consultant}</td>
+                    {this.props.role ==="User"? (
+                        <td key={index}>{b.consultant}</td>
+                    ):(
+                      <td key={index}>{b.user}</td>
+                    )}
+                    
                     <td key={index}>{b.subject}</td>
                     <td  ><Button className="btn-sm" data-value={b.consultant} onClick={this.callModalButtonHandler} >Call</Button></td>
                   </tr>
@@ -138,7 +143,7 @@ export default class DashContent extends Component {
                 
                 <Hero topDivider userData = {this.props.userData} username={this.props.username} upcoming={this.props.upcoming} role={this.props.role} />
                { this.props.role !== "Admin" && (
-                <TableModal>
+                <TableModal role={this.props.role}>
                   <tbody>
                   {data}
                   </tbody>

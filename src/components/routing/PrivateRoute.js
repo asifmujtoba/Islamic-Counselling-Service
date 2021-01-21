@@ -8,6 +8,7 @@ const PrivateRoute = ({
   ...rest
 }) => {
   
+  console.log("Username: ",username);
   return  (
   <Route
     {...rest}

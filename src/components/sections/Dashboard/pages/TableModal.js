@@ -14,7 +14,11 @@ const TableModal = ({children, ...props}) =>{
                     <tr>
                       <th>Date</th>
                       <th>Time</th>
-                      <th>Consultant Name</th>
+                      {props.role ==="User" ? 
+                      (<th>Consultant Name</th>
+                      ): (<th>Student Name</th>)
+                      }
+                      
                       <th>Subject</th>
                       {props.from ==="booking" ? 
                       (<><th>Message</th>
@@ -24,22 +28,7 @@ const TableModal = ({children, ...props}) =>{
                     </tr>
                   </thead>
                   {children}
-                    {/* {bookList.map((booking)=>{
-                      {bookingList.length === 0 ? (
-                        <p>No bookings available</p>
-                        ) : (
-                          <tbody>
-                          <tr>
-                            <td>{booking.date}</td>
-                            <td>{booking.time}</td>
-                            <td>{booking.consultant}</td>
-                            <td>{booking.subject}</td>
-                           </tr>
-                           </tbody>
-                          )}
-                       })}
-                   */}
-               
+        
                   </table>
                   </div>
         

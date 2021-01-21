@@ -7,17 +7,18 @@ export const useLogin = (formState, handleSuccess, handleFailure) => {
   const { userLogin } = authenticationSvc;
   const dispatch = useDispatch();
 
-  const onSubmit = async event => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     const loginRes = await userLogin(formState);
     if (loginRes.status === 200) {
-      handleSuccess();
       const fullUser = {
         ...loginRes.data.user,
         token: loginRes.data.token,
       };
+      console.log(fullUser);
       localStorage.setItem('user', JSON.stringify(fullUser));
       dispatch(setUserData(fullUser));
+      handleSuccess();
     } else {
       handleFailure();
     }

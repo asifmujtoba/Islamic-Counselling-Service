@@ -3,7 +3,7 @@ import {useGetBooking} from '../../../../../hooks';
 import TableModal from '../TableModal';
 
 
-const UserContent = ({
+const BookingContent = ({
     username,
 }) => {
     const {bookingList} = useGetBooking('all');
@@ -27,7 +27,9 @@ const UserContent = ({
         
     return (
         <div className="page-content">
-            <h4 className="mb-32">Hi {username.toUpperCase()}, All Bookings Information</h4>
+            <h4 className="mb-32"> All Bookings Information</h4>
+            <br/>
+            <br/>
             <TableModal from={"booking"}>
                   <tbody>
                   {data}
@@ -38,4 +40,4 @@ const UserContent = ({
     )
 }
 
-export default UserContent;
+export default BookingContent;

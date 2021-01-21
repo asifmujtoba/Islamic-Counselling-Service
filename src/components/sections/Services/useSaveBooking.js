@@ -47,9 +47,6 @@ export const useSaveBooking = (
         : await createBooking(newBooking);
     
 
-    
-   
-
     if (status === 200) {
       setNewBookingAvailable(true);
       userData.booking.push(id);
