@@ -55,7 +55,7 @@ module.exports = env => {
       compress: true,
       port: 3000,
       proxy: {
-        '/bridge/': `http://localhost:${process.env.devPORT}`
+        '/bridge/': 'https://islamic-counselling-service.herokuapp.com/'
       },
       watchOptions: {
         aggregateTimeout: 300,
