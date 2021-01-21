@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
     "build": "webpack --env.ENVIRONMENT=production --mode production",
-    "test": "jest --config ./jest.config.json",
-    "test:verbose": "jest --verbose --config ./jest.config.json"
+    "start": "npm run dev"
   },
   "keywords": [],
   "author": "",
