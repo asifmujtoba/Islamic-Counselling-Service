@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
     "build": "webpack --env.ENVIRONMENT=production --mode production",
-    "start": "npm run dev"
+    "start": "concurrently \"cd server && npm run start\" \"node server.js\""
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "classnames": "^2.2.6",
+    "concurrently": "5.3.0",
     "history": "^4.10.1",
     "lodash": "^4.17.20",
     "react": "^16.12.0",
