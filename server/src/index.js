@@ -6,7 +6,7 @@ const http = require('http');
 const server = http.createServer(app);
 
 dotenv.config();
-const port = 3001;
+const port = 80;
 
 // stablish connection to DB
 const { connectToDB } = require('./database');

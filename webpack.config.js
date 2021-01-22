@@ -51,6 +51,15 @@ module.exports = env => {
       ],
     },
     plugins: [HtmlPlugin, EnvironmentPlugin],
-  
+    devServer: {
+      compress: true,
+      proxy: {
+        '/bridge/': 'https://islamic-counselling-service.herokuapp.com:80/'
+      },
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+      }
+    }
   };
 };
