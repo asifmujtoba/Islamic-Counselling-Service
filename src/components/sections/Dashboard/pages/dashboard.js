@@ -115,26 +115,39 @@ export default class DashContent extends Component {
     render = () => {
       const { clientId, callFrom, callModal, callWindow, localSrc, peerSrc } = this.state;
       let date ;
-       let data =  !(this.props.userData === 0) && !(this.props.bookingList.length ===0) ?
-        this.props.bookingList.map((b)=>
-          this.props.userData.booking.map((p, index) =>
-             (b._id === p) && ( date = new Date(b.date)) && ( 
-              
-                  <tr>
-                    <td key={index}>{date.toDateString() }</td>
-                    <td key={index}>{b.time}</td>
-                    {this.props.role ==="User"? (
-                        <td key={index}>{b.consultant}</td>
-                    ):(
-                      <td key={index}>{b.user}</td>
-                    )}
-                    
-                    <td key={index}>{b.subject}</td>
-                    <td  ><Button className="btn-sm" data-value={b.consultant} onClick={this.callModalButtonHandler} >Call</Button></td>
-                  </tr>
-              
-              )
-            )) : <tr><td>No Bookings</td></tr>;
+      let data =  this.props.role ==="User" ? (!(this.props.userData === 0) && !(this.props.bookingList.length ===0) ?
+      this.props.bookingList.map((b)=>
+        this.props.userData.booking.map((p, index) =>
+           (b._id === p) && ( date = new Date(b.date)) && ( 
+            
+                <tr>
+                  <td key={index}>{date.toDateString() }</td>
+                  <td key={index}>{b.time}</td>
+                   <td key={index}>{b.consultant}</td>
+  
+                  <td key={index}>{b.subject}</td>
+                  <td  ><Button className="btn-sm" data-value={b.consultant} onClick={this.callModalButtonHandler} >Call</Button></td>
+                </tr>
+            
+            )
+          )) : <tr><td>No Bookings</td></tr> ): (
+            !(this.props.bookingList.length ===0) ?
+          this.props.bookingList.map((b, index)=>
+               (b.consultant === this.props.username) && ( date = new Date(b.date)) && ( 
+                
+                    <tr>
+                      <td key={index}>{date.toDateString() }</td>
+                      <td key={index}>{b.time}</td>
+                      
+                        <td key={index}>{b.user}</td>
+          
+                      <td key={index}>{b.subject}</td>
+                      <td  ><Button className="btn-sm" data-value={b.consultant} onClick={this.callModalButtonHandler} >Call</Button></td>
+                    </tr>
+                
+                )
+              ) : <tr><td>No Bookings</td></tr>
+          );
 
         return (      
             <div className="page-content">
