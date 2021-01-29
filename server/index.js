@@ -1,15 +1,15 @@
-const app = require('./server');
+const app = require('./src/server');
 const dotenv = require('dotenv');
-const socket = require('./utils/socket');
+const socket = require('./src/utils/socket');
 const http = require('http');
 
 const server = http.createServer(app);
 
 dotenv.config();
-const port = 80;
+const port = process.env.PORT || 3001;
 
 // stablish connection to DB
-const { connectToDB } = require('./database');
+const { connectToDB } = require('./src/database');
 connectToDB();
 
 server.listen(port, () => {

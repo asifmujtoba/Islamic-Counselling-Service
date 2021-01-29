@@ -8,7 +8,7 @@ import Services from '../sections/Services';
 
 import Dashboard from '../sections/Dashboard';
 // import NotFound from '../layout/NotFound';
-import PrivateRoute from '../routing/PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 import Consultants from '../sections/Consultants';
 import Users from '../sections/Dashboard/pages/users';
 import AboutUs from '../sections/About-Us';
