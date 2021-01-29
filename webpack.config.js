@@ -7,7 +7,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const checkEnv = require('./checkEnv.setup');
 
 const HtmlPlugin = new HtmlWebPackPlugin({
-  template: './src/index.html',
+  template: './client/index.html',
   filename: './index.html',
 });
 
@@ -17,7 +17,7 @@ module.exports = env => {
   const EnvironmentPlugin = new webpack.DefinePlugin(envKeys); // set enviromental variables in the compile time
 
   return {
-    entry: './src/index.js', //default value
+    entry: './client/index.js', //default value
     module: {
       rules: [
         {
@@ -53,9 +53,6 @@ module.exports = env => {
     plugins: [HtmlPlugin, EnvironmentPlugin],
     devServer: {
       compress: true,
-      proxy: {
-        '/bridge/': 'https://islamic-counselling-service.herokuapp.com:80/'
-      },
       watchOptions: {
         aggregateTimeout: 300,
         poll: 1000

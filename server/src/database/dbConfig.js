@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // mongo database URI
-const mongoUri = "mongodb+srv://test:Qwedsa@321@cluster0.mr65q.mongodb.net/db?retryWrites=true&w=majority";
+const mongoUri = "mongodb://localhost:27017/test";
 
 const configObj = {
   useUnifiedTopology: true,

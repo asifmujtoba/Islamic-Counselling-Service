@@ -85,7 +85,8 @@ const Hero = ({
             )}
             data-reveal-container=".split-item">
             <Image
-              src={require('../../../../src/assets/images/home-bg.png')}
+              src={require('../../../assets/images/home-bg.png')}
+              
               alt="Features split 02"
               width={528}
               height={396} />

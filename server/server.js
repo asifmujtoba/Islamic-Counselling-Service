@@ -2,14 +2,13 @@ const express = require('express');
 const app = express();
 var session = require('express-session');
 var sharedsesseion = require('express-socket.io-session');
-const setHeaders = require('./utils/setHeaders');
-const bodyParser = require('./utils/bodyParser');
-const authenticationRouter = require('./routers/authentication.router');
-const postsRouter = require('./routers/posts.router');
-const usersRouter = require('./routers/users.router');
-const bookingRouter = require('./routers/booking.router');
-const contactRouter = require('./routers/contact.router');
-const newsletterRouter = require('./routers/newsletter.router');
+const setHeaders = require('./src/utils/setHeaders');
+const bodyParser = require('./src/utils/bodyParser');
+const authenticationRouter = require('./src/routers/authentication.router');
+const usersRouter = require('./src/routers/users.router');
+const bookingRouter = require('./src/routers/booking.router');
+const contactRouter = require('./src/routers/contact.router');
+const newsletterRouter = require('./src/routers/newsletter.router');
 // set headers to avoid CORS Policy
 app.use(setHeaders);
 // parser the body of the request
@@ -23,14 +22,8 @@ app.use(session({
 }));
 
 
-// testing path
-app.get('/publications', (req, res) => {
-  res.send([]);
-});
-
 //setting routers
 app.use('/authentication', authenticationRouter);
-app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 app.use('/booking', bookingRouter);
 app.use('/contact', contactRouter);

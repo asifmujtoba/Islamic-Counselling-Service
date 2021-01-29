@@ -8,6 +8,7 @@ export const userLogin = async data => {
       url: `${process.env.API_URL}/authentication/login`,
       data: JSON.stringify(data),
     });
+    console.log(res);
     return res;
   } catch (err) {
     return logError(err);

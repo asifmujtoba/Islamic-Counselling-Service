@@ -22,6 +22,7 @@ module.exports = async (req, res) => {
     if (correctPassword) {
       req.session.username = username;
       const bodyRes = makeResponse(userDoc);
+      console.log("req: ", bodyRes);
       res.status(200).send(bodyRes);
     } else {
       res.status(401).send('Incorrect Password');
