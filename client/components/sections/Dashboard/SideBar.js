@@ -15,7 +15,7 @@ const SideBar= (props) => {
     <header className="collapsed page-header">
       
         <Link to="/">
-          <img className="logo" src="../../../src/assets/images/logo.png"/>
+          <img className="logo" src="../../../assets/images/logo.png"/>
         </Link>
 
         <ul className="admin-menu">
