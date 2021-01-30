@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
     "build": "webpack --env.ENVIRONMENT=production --mode production",
-    "start": "concurrently \"cd server && npm run start\" \"node index.js\"",
-    "run": "node index.js"
+    "start": "node index.js"
 
   },
   "keywords": [],
