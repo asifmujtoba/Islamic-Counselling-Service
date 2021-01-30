@@ -2,6 +2,7 @@ const userController = require('../../controllers/user.controller');
 const makeResponse = require('./utils/makeResponse');
 const validateUserPassword = require('./utils/validateUserPassword');
 
+
 module.exports = async (req, res) => {
   const { username, password } = req.body;
   const userDoc = await userController.findByUsername(username);
@@ -12,6 +13,7 @@ module.exports = async (req, res) => {
   } else if (!userDoc) {
     res.status(404).send('no user found');
   } // ----------------------------------------
+  
   else {
     // validate password from database with the one from request
     const correctPassword = await validateUserPassword(
@@ -22,7 +24,6 @@ module.exports = async (req, res) => {
     if (correctPassword) {
       req.session.username = username;
       const bodyRes = makeResponse(userDoc);
-      console.log("req: ", bodyRes);
       res.status(200).send(bodyRes);
     } else {
       res.status(401).send('Incorrect Password');
