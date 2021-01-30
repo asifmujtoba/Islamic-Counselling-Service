@@ -45,6 +45,7 @@ export default class DashContent extends Component {
             this.setState({ callModal: 'active', callFrom });
           })
           .on('call', (data) => {
+            console.log(data);
             if (data.sdp) {
               this.pc.setRemoteDescription(data.sdp);
               if (data.sdp.type === 'offer') this.pc.createAnswer();
