@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // mongo database URI
-const mongoUri = "mongodb://localhost:27017/test";
+const mongoUri = process.env.MONGO_URI;
 
 const configObj = {
   useUnifiedTopology: true,
