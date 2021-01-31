@@ -143,7 +143,7 @@ export default class DashContent extends Component {
                         <td key={index}>{b.user}</td>
           
                       <td key={index}>{b.subject}</td>
-                      <td  ><Button className="btn-sm" data-value={b.consultant} onClick={this.callModalButtonHandler} >Call</Button></td>
+                      <td  ><Button className="btn-sm" data-value={b.user} onClick={this.callModalButtonHandler} >Call</Button></td>
                     </tr>
                 
                 )
