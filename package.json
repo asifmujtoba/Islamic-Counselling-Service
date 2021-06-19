@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --env.ENVIRONMENT=development --mode development",
-    "build": "webpack --env.ENVIRONMENT=production --mode production",
+    "build": "webpack build --output public --env.ENVIRONMENT=production --mode production",
     "start": "node index.js"
 
   },
